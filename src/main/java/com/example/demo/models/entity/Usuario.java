@@ -1,5 +1,6 @@
 package com.example.demo.models.entity;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,6 +43,10 @@ public class Usuario {
 
     @NotNull
     private String password;
+
+    private String plan;
+
+    private Date fecha_in;
 
     @NotNull
     @ManyToMany
@@ -125,5 +130,17 @@ public class Usuario {
         this.roles = roles;
     }
 
-    
+    public String getPlan(){
+        return plan;
+    }
+    public void setPlan(String plan){
+        this.plan = plan;
+    }
+    public Date getFecha_in(){
+        return fecha_in;
+    }
+
+    public void setFecha_in(Date fecha_in){
+        this.fecha_in = fecha_in;
+    }
 }

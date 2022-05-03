@@ -32,7 +32,9 @@ public interface IInscripcionService {
 	
 	public List<Object> eliminar_fechastomadas(String id_res,String id_hrs,Date fd); 
 	
-	public List<Usuario> findTraeUsuario(String nombre); 
+	public List<Usuario> findTraeUsuario(String nombre);
+	
+	public List<Usuario> findTraeNombre_Usuario(String nombre_usuario); 
 	
 	public List<Object> eliminar_fecharemplazo(String id_hrs,Date fd); 
 }

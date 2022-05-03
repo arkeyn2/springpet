@@ -1,48 +1,49 @@
 package com.example.demo.model.dao;
 
+import java.sql.Date;
 import java.util.Set;
 
-
-
 public class NuevoUsuario {
-    
+
     private String nombre;
 
-
     private String email;
-    
+
     private String apellido;
-    
+
     private String rut;
 
     private String nombreUsuario;
 
-
     private String password;
 
     private Set<String> roles;
+
+    private String plan;
+
+    private Date fecha_in;
 
     public String getNombre() {
         return nombre;
     }
 
     public String getApellido() {
-		return apellido;
-	}
+        return apellido;
+    }
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-	public String getRut() {
-		return rut;
-	}
+    public String getRut() {
+        return rut;
+    }
 
-	public void setRut(String rut) {
-		this.rut = rut;
-	}
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
 
-	public void setNombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -77,5 +78,17 @@ public class NuevoUsuario {
     public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
-    
+    public String getPlan(){
+        return plan;
+    }
+    public void setPlan(String plan){
+        this.plan = plan;
+    }
+    public Date getFecha_in(){
+        return fecha_in;
+    }
+
+    public void setFecha_in(Date fecha_in){
+        this.fecha_in = fecha_in;
+    }
 }

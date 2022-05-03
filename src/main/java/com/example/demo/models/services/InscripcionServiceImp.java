@@ -90,6 +90,11 @@ public class InscripcionServiceImp implements IInscripcionService{
 	}
 	
 	@Override
+	public List<Usuario> findTraeNombre_Usuario(String nombre_usuario) {
+		return reservaDao.findTraeUsuario(nombre_usuario);
+	}
+
+	@Override
 	public List<Inscripcion> findReservaSobrescribir(Date dia, String id_hora, String id_sala) {
 		// TODO Auto-generated method stub
 		return null;
