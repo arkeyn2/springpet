@@ -2,6 +2,8 @@ package com.example.demo.model.dao;
 
 import java.util.Set;
 
+import javax.xml.crypto.Data;
+
 
 
 public class NuevoUsuario {
@@ -22,6 +24,10 @@ public class NuevoUsuario {
 
     private Set<String> roles;
 
+    private String plan;
+    
+    private Data fecha_in;
+    
     public String getNombre() {
         return nombre;
     }
@@ -77,5 +83,21 @@ public class NuevoUsuario {
     public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
+
+	public String getPlan() {
+		return plan;
+	}
+
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
+
+	public Data getFecha_in() {
+		return fecha_in;
+	}
+
+	public void setFecha_in(Data fecha_in) {
+		this.fecha_in = fecha_in;
+	}
     
 }

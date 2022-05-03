@@ -58,15 +58,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password,@NotNull String apellido,@NotNull String rut,String plan,Data fecha_in ) {
+    public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password,@NotNull String apellido,@NotNull String rut) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
         this.apellido = apellido;
         this.rut = rut;
-        this.plan = plan;
-        this.fecha_in = fecha_in;
 
     }
 
