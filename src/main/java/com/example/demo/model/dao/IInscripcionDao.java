@@ -34,6 +34,7 @@ public interface IInscripcionDao extends CrudRepository<Inscripcion, Long>{
 	/*Query para traer usuario*/
 	@Query("select usu from Usuario usu where usu.nombre=?1")
 	public List<Usuario> findTraeUsuario(String nombre);
+
 	
 	@Query("select ins from Inscripcion ins inner join Usuario usu on usu.id=ins.usuario.id where usu.nombre=?1")
 	public List<Inscripcion> findReservaPorUsuario(String nombre);

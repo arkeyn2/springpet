@@ -258,6 +258,7 @@ public class InscripcionRestController {
 		}
 		return new ResponseEntity<List<Usuario>>(reserva, HttpStatus.OK);
 	}
+
 	
 	@GetMapping("/reservahoras/fecharemplazo/{id_hrs}/{fd}")
 	public ResponseEntity<?> eliminar_fecharemplazo(@PathVariable String id_hrs,@PathVariable String fd) throws ParseException {

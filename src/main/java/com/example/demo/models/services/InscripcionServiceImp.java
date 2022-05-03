@@ -88,7 +88,7 @@ public class InscripcionServiceImp implements IInscripcionService{
 	public List<Usuario> findTraeUsuario(String nombre) {
 		return reservaDao.findTraeUsuario(nombre);
 	}
-	
+
 	@Override
 	public List<Inscripcion> findReservaSobrescribir(Date dia, String id_hora, String id_sala) {
 		// TODO Auto-generated method stub

@@ -1,5 +1,6 @@
 package com.example.demo.models.entity;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.xml.crypto.Data;
 import javax.persistence.JoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -44,11 +44,9 @@ public class Usuario {
     @NotNull
     private String password;
 
-    
     private String plan;
 
-    
-    private Data fecha_in;
+    private Date fecha_in;
 
     @NotNull
     @ManyToMany
@@ -132,19 +130,17 @@ public class Usuario {
         this.roles = roles;
     }
 
-    public String getPlan() {
+    public String getPlan(){
         return plan;
     }
-
-    public void setPlan(String plan) {
+    public void setPlan(String plan){
         this.plan = plan;
     }
-
-    public Data getFecha_in() {
+    public Date getFecha_in(){
         return fecha_in;
     }
 
-    public void setFecha_in(Data fecha_in) {
+    public void setFecha_in(Date fecha_in){
         this.fecha_in = fecha_in;
     }
 }
