@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.xml.crypto.Data;
 import javax.persistence.JoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -43,6 +44,12 @@ public class Usuario {
     @NotNull
     private String password;
 
+    
+    private String plan;
+
+    
+    private Data fecha_in;
+
     @NotNull
     @ManyToMany
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
@@ -51,13 +58,15 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password,@NotNull String apellido,@NotNull String rut) {
+    public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password,@NotNull String apellido,@NotNull String rut,String plan,Data fecha_in ) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
         this.apellido = apellido;
         this.rut = rut;
+        this.plan = plan;
+        this.fecha_in = fecha_in;
 
     }
 
@@ -125,5 +134,19 @@ public class Usuario {
         this.roles = roles;
     }
 
-    
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public Data getFecha_in() {
+        return fecha_in;
+    }
+
+    public void setFecha_in(Data fecha_in) {
+        this.fecha_in = fecha_in;
+    }
 }
