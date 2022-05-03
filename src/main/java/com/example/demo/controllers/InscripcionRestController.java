@@ -258,6 +258,28 @@ public class InscripcionRestController {
 		}
 		return new ResponseEntity<List<Usuario>>(reserva, HttpStatus.OK);
 	}
+	
+	@GetMapping("/reservas/buscausnombreuario/{nombre}")
+	public ResponseEntity<?> findTraenombreUsuario(@PathVariable String nombreusuario) {
+
+		List<Usuario> reserva = null;
+		Map<String, Object> response = new HashMap<>();
+		
+		try {
+			reserva = reservaService.findTraeUsuario(nombreusuario);
+			System.out.print(reserva+ " fd");
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		if (reserva == null) {
+			response.put("mensaje", "La reserva Id:".concat(nombreusuario.toString().concat(" no existe en la base de datos!")));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Usuario>>(reserva, HttpStatus.OK);
+	}
 
 	
 	@GetMapping("/reservahoras/fecharemplazo/{id_hrs}/{fd}")

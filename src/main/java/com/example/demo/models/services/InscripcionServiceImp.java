@@ -88,6 +88,11 @@ public class InscripcionServiceImp implements IInscripcionService{
 	public List<Usuario> findTraeUsuario(String nombre) {
 		return reservaDao.findTraeUsuario(nombre);
 	}
+	
+	@Override
+	public List<Usuario> findTraenombreUsuario(String nombreusuario) {
+		return reservaDao.findTraeUsuario(nombreusuario);
+	}
 
 	@Override
 	public List<Inscripcion> findReservaSobrescribir(Date dia, String id_hora, String id_sala) {
