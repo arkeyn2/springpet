@@ -36,10 +36,7 @@ public class Usuario {
     @NotNull
     @Column(unique = true)
     private String nombreUsuario;
-    //hola
-  //hola
-	//hola
-	//hola
+
     @NotNull
     @Column(unique = true)
     private String email;
