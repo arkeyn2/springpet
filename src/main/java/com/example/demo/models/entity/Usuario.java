@@ -38,6 +38,7 @@ public class Usuario {
     private String nombreUsuario;
     //hola
   //hola
+	//hola
     @NotNull
     @Column(unique = true)
     private String email;
