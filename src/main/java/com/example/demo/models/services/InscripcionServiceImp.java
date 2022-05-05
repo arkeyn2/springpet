@@ -58,14 +58,14 @@ public class InscripcionServiceImp implements IInscripcionService{
 	public List<Inscripcion> findReservaPorUsuario(String Nombre_usu) {
 		return reservaDao.findReservaPorUsuario(Nombre_usu);
 	}
-	/*
+	
 	@Override
-	public List<Object> eliminarreserva(String id_reserva) {
-		long id=Long.parseLong(id_reserva);
+	public List<Object> eliminar_inscripcion(String id_inscripcion) {
+		long id=Long.parseLong(id_inscripcion);
 		//System.out.println(id_reserva);
-		return reservaDao.eliminarreserva(id);
+		return reservaDao.eliminar_inscripcion(id);
 	}
-
+/*
 	@Override
 	public List<Object> eliminar_fechastomadas(String id_res,String id_hrs,Date fd) {
 		long id=Long.parseLong(id_res);
@@ -91,7 +91,7 @@ public class InscripcionServiceImp implements IInscripcionService{
 	
 	@Override
 	public List<Usuario> findTraenombreUsuario(String nombreusuario) {
-		return reservaDao.findTraeUsuario(nombreusuario);
+		return reservaDao.findTraenombreUsuario(nombreusuario);
 	}
 
 	@Override
@@ -112,11 +112,6 @@ public class InscripcionServiceImp implements IInscripcionService{
 		return null;
 	}
 
-	@Override
-	public List<Object> eliminarreserva(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Object> eliminar_fechastomadas(String id_res, String id_hrs, Date fd) {

@@ -42,9 +42,9 @@ public interface IInscripcionDao extends CrudRepository<Inscripcion, Long>{
 	@Query("select ins from Inscripcion ins inner join Usuario usu on usu.id=ins.usuario.id where usu.nombre=?1")
 	public List<Inscripcion> findReservaPorUsuario(String nombre);
 	
-	/*procedimiento eliminacion reserva
-	@Procedure("eliminar_reserva(?1)")
-	public List<Object> eliminarreserva(String id);*/
+	//procedimiento eliminar inscripcion
+	@Procedure("eliminar_inscripcion(?1)")
+	public List<Object> eliminar_inscripcion(long id);
 	/*
 	@Modifying
 	@Query(value= "select cast(eliminar_reserva(?1) as text)",nativeQuery = true  )

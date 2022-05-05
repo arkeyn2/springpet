@@ -197,13 +197,13 @@ public class InscripcionRestController {
 	}
 	
 	@GetMapping("/reservas/reserva/{id}")
-	public ResponseEntity<?> eliminarreserva(@PathVariable String id) {
+	public ResponseEntity<?> eliminar_inscripcion(@PathVariable String id) {
 
 		List<Object> reserva = null;
 		Map<String, Object> response = new HashMap<>();
 
 		try {
-			reserva = reservaService.eliminarreserva(id);
+			reserva = reservaService.eliminar_inscripcion(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al ejecutar procedimiento almacenado en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -259,14 +259,14 @@ public class InscripcionRestController {
 		return new ResponseEntity<List<Usuario>>(reserva, HttpStatus.OK);
 	}
 	
-	@GetMapping("/reservas/buscausnombreuario/{nombre}")
+	@GetMapping("/reservas/buscarUsuarioNombre/{nombreusuario}")
 	public ResponseEntity<?> findTraenombreUsuario(@PathVariable String nombreusuario) {
-
+		System.out.println(nombreusuario);
 		List<Usuario> reserva = null;
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			reserva = reservaService.findTraeUsuario(nombreusuario);
+			reserva = reservaService.findTraenombreUsuario(nombreusuario);
 			System.out.print(reserva+ " fd");
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta en la base de datos");

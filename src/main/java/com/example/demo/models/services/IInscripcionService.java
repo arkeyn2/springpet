@@ -28,7 +28,7 @@ public interface IInscripcionService {
 	
 	public List<Inscripcion> findReservaPorUsuario(String id); 
 	
-	public List<Object> eliminarreserva(String id); 
+	public List<Object> eliminar_inscripcion(String id); 
 	
 	public List<Object> eliminar_fechastomadas(String id_res,String id_hrs,Date fd); 
 	

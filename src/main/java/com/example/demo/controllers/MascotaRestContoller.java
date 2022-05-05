@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.entity.Mascota;
+import com.example.demo.models.services.IInscripcionService;
 import com.example.demo.models.services.IMascotaService;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
@@ -30,7 +31,8 @@ public class MascotaRestContoller {
 
 	@Autowired
 	private IMascotaService mascotaService;
-
+	private IInscripcionService reservaService;
+	
 	@GetMapping("/mascotas")
 	public List<Mascota> index() {
 		return mascotaService.findAll();
@@ -118,10 +120,11 @@ public class MascotaRestContoller {
 
 	@DeleteMapping("/mascotas/{id}")
 	
-	public ResponseEntity<?> delete(@PathVariable Long id) {
+	public ResponseEntity<?> delete(@PathVariable String id) {
 		Map<String, Object> response = new HashMap<>();
 		try {
-			mascotaService.delete(id);
+			reservaService.eliminar_inscripcion(id);
+			//mascotaService.delete(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al eliminar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
