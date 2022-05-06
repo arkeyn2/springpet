@@ -35,6 +35,7 @@ public class Mascota implements Serializable {
 	private String numero;
 	private String estado;
 	private String reg_mas;
+	private String foto;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -122,6 +123,15 @@ public class Mascota implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 
 
