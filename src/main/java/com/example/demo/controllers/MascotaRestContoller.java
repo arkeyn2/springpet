@@ -31,7 +31,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.example.demo.models.entity.Mascota;
 import com.example.demo.models.services.IInscripcionService;
 import com.example.demo.models.services.IMascotaService;
@@ -44,6 +45,7 @@ public class MascotaRestContoller {
 	@Autowired
 	private IMascotaService mascotaService;
 	private IInscripcionService reservaService;
+	private final Logger log = LoggerFactory.getLogger(MascotaRestContoller.class);
 	
 	@GetMapping("/mascotas")
 	public List<Mascota> index() {
@@ -182,10 +184,12 @@ public class MascotaRestContoller {
 		
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
-	@GetMapping("/uploads/img/{nombreFoto:.+}")
+	@GetMapping("/uploads/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
-
+		
 		Path rutaArchivo = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
+		log.info(rutaArchivo.toString());
+		
 		Resource recurso = null;
 		
 		try {
@@ -195,15 +199,12 @@ public class MascotaRestContoller {
 		}
 		
 		if(!recurso.exists() && !recurso.isReadable()) {
-			throw new RuntimeException("Error no se pudo cargar la imagen : " + nombreFoto);
+			throw new RuntimeException("Error no se pudo cargar la imagen: " + nombreFoto);
 		}
-		
 		HttpHeaders cabecera = new HttpHeaders();
-		cabecera.add(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=\""+ recurso.getFilename()+ "\"");
+		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
 		
-		return new ResponseEntity<Resource>(recurso,cabecera,HttpStatus.OK);
-		
-		
+		return new ResponseEntity<Resource>(recurso, cabecera, HttpStatus.OK);
 	}
 
 	}
