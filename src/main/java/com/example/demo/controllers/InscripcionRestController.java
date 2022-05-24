@@ -197,13 +197,13 @@ public class InscripcionRestController {
 	}
 	
 	@GetMapping("/reservas/reserva/{id}")
-	public ResponseEntity<?> eliminarreserva(@PathVariable String id) {
+	public ResponseEntity<?> eliminar_inscripcion(@PathVariable String id) {
 
 		List<Object> reserva = null;
 		Map<String, Object> response = new HashMap<>();
 
 		try {
-			reserva = reservaService.eliminarreserva(id);
+			reserva = reservaService.eliminar_inscripcion(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al ejecutar procedimiento almacenado en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -254,6 +254,28 @@ public class InscripcionRestController {
 
 		if (reserva == null) {
 			response.put("mensaje", "La reserva Id:".concat(nombre.toString().concat(" no existe en la base de datos!")));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Usuario>>(reserva, HttpStatus.OK);
+	}
+	
+	@GetMapping("/reservas/buscarUsuarioNombre/{nombreusuario}")
+	public ResponseEntity<?> findTraenombreUsuario(@PathVariable String nombreusuario) {
+		System.out.println(nombreusuario);
+		List<Usuario> reserva = null;
+		Map<String, Object> response = new HashMap<>();
+		
+		try {
+			reserva = reservaService.findTraenombreUsuario(nombreusuario);
+			System.out.print(reserva+ " fd");
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		if (reserva == null) {
+			response.put("mensaje", "La reserva Id:".concat(nombreusuario.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<List<Usuario>>(reserva, HttpStatus.OK);

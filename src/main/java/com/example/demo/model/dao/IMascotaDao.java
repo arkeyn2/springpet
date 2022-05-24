@@ -6,4 +6,5 @@ import com.example.demo.models.entity.Mascota;
 
 public interface IMascotaDao extends CrudRepository<Mascota, Long>{
 
+
 }
