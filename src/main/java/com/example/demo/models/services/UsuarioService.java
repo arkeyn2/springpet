@@ -35,7 +35,9 @@ public class UsuarioService implements IUsuarioService{
     public boolean existePorNombre(String nu){
         return usuarioRepository.existsByNombreUsuario(nu);
     }
-
+	public boolean existePorRut(String ru){
+        return usuarioRepository.existsByRut(ru);
+	}
     public  boolean existePorEmail(String email){
         return usuarioRepository.existsByEmail(email);
     }
